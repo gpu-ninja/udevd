@@ -1,8 +1,10 @@
 #!/bin/sh
 set -e
 
-nsenter -t 1 -n /lib/systemd/systemd-udevd --daemon
+export SYSTEMD_IGNORE_CHROOT=1
 
-udevadm trigger --action=add --subsystem-match=block
-
-udevadm monitor
+nsenter -t 1 -n /bin/sh -c '
+  /lib/systemd/systemd-udevd --daemon
+  udevadm trigger --action=add --subsystem-match=block
+  udevadm monitor
+'
