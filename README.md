@@ -1,2 +1,2 @@
 # udevd
-Containerized udevd for dynamic block/dist devices on Docker.
+Containerized udevd for dynamic block/disk devices on Docker.
