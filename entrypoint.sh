@@ -4,7 +4,7 @@ set -e
 # Don't take ownwership of the host devices.
 mount -o remount,ro /sys
 
-nsenter -t 1 -n /lib/systemd/systemd-udevd --daemon
+nsenter -t 1 -n /lib/systemd/systemd-udevd --debug --daemon
 
 export SYSTEMD_IGNORE_CHROOT=1
 
